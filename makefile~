@@ -1,0 +1,3 @@
+
+zeldapnt.EXE : zeldapnt.c
+	gcc zeldapnt.c -o zeldapnt.exe -lallegr -Wall
