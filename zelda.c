@@ -41,7 +41,7 @@ void load_map(char *filename, int map[10][8])
       for(x=0; x<10; ++x) {
 	map[x][y] = fgetc(out);
       }
-    
+
   }
 }
 
@@ -52,7 +52,7 @@ void getstring(char *dateiname)
 
   rect(screen, 49, 0, 146, 9, 150);
 
-  for (i=0; c != '\r' && c != '\n'; ++i) {  
+  for (i=0; c != '\r' && c != '\n'; ++i) {
     c = readkey();
 
     if (c == '\b') {
@@ -65,7 +65,7 @@ void getstring(char *dateiname)
       continue;
     } else if (!isgraph(c)){
       --i;
-      continue; 
+      continue;
     }
 
     if (i > 11)
