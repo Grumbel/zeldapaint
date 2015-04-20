@@ -1,11 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <allegro.h>
+
 #include "header.h"
 
 void load_map(char *filename, int map[10][8]);
 void save_map(char *filename, int map[10][8]);
+
+struct BITMAP*
+load_bmp_with_check(const char* filename, struct RGB* pal)
+{
+  BITMAP* result = load_bmp(filename, pal);
+  if (!result)
+  {
+    perror(filename);
+    abort();
+  }
+  return result;
+}
 
 int main(int argc, char *argv[1])
 {
@@ -61,7 +75,7 @@ int main(int argc, char *argv[1])
   set_mouse_range(80, 32, 239, 159);
 
   index = minSprite;
-  sprite_bmp = load_bmp(Sprite[index], my_pallete);
+  sprite_bmp = load_bmp_with_check(Sprite[index], my_pallete);
   set_pallete (my_pallete);
   clear(screen);
 
@@ -172,21 +186,21 @@ int main(int argc, char *argv[1])
       show_mouse(0);
       for (y=0; y<8; ++y)
         for (x=0; x<10; ++x) {
-          sprite_bmp = load_bmp(Sprite[map[x][y]], my_pallete);
+          sprite_bmp = load_bmp_with_check(Sprite[map[x][y]], my_pallete);
           blit (sprite_bmp, screen,
                 0,0,
                 x*16+80, y*16+32,
                 16, 16
             );
         }
-      sprite_bmp = load_bmp(Sprite[index], my_pallete);
+      sprite_bmp = load_bmp_with_check(Sprite[index], my_pallete);
       show_mouse(screen);
       repaint_map = FALSE;
     } // repaint_map
 
     if (repaint_status_line) {
       show_mouse(0);
-      sprite_bmp = load_bmp(Sprite[index], my_pallete);
+      sprite_bmp = load_bmp_with_check(Sprite[index], my_pallete);
       /* Dateiname des Sprites ausgeben */
       KILL_STATUS_LINE;
       sprintf (buf, "%3d - %s", index, Sprite[index] + strlen(Pfad));
