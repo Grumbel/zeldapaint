@@ -41,7 +41,7 @@ int main(int argc, char *argv[1])
 
   // liest Sprite Namen aus Datei ein
   in = fopen("sprite.ini", "r");
-  strcpy(Pfad, "Sprite/");
+  strcpy(Pfad, "sprite/");
   for (index=0; index <= maxSprite; ++index) {
     fscanf(in, "%s", Datei);
     strcpy(Sprite[index], Pfad);
