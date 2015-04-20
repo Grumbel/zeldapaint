@@ -4,6 +4,9 @@
 #include <allegro.h>
 #include "header.h"
 
+void load_map(char *filename, int map[10][8]);
+void save_map(char *filename, int map[10][8]);
+
 int main(int argc, char *argv[1])
 {
  PALLETE my_pallete;
