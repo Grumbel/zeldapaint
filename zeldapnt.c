@@ -27,7 +27,7 @@ int main(int argc, char *argv[1])
 
  // liest Sprite Namen aus Datei ein
  in = fopen("sprite.ini", "r");
- strcpy(Pfad, "Sprite\\");
+ strcpy(Pfad, "Sprite/");
  for (index=0; index <= maxSprite; ++index) {
      fscanf(in, "%s", Datei);
      strcpy(Sprite[index], Pfad);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[1])
  install_keyboard();
  install_mouse();
  install_timer();
-  
+
  if (argc == 2) {
     strcat(argv[1], ".map");
     if (!exist(argv[1])) {
@@ -55,8 +55,8 @@ int main(int argc, char *argv[1])
     printf ("Datei \"%s\" geladen\n", argv[1]);
     repaint_map = TRUE;
   }
-
-  set_gfx_mode(GFX_VGA, 320, 200, 0, 0);
+ 
+  set_gfx_mode(GFX_AUTODETECT_WINDOWED, 320, 200, 0, 0);
   set_mouse_speed(2,2);
   set_mouse_range(80, 32, 239, 159);
 
