@@ -24,6 +24,7 @@
 
 #include "header.h"
 
+void getstring(char *dateiname);
 void load_map(char *filename, int map[10][8]);
 void save_map(char *filename, int map[10][8]);
 

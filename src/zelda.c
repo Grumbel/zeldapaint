@@ -76,7 +76,7 @@ void getstring(char *dateiname)
     if (c == '\b') {
       --i;
       dateiname[i] = ' ';
-      textout(screen, font, dateiname, 50, 1, 255);
+      textout_ex(screen, font, dateiname, 50, 1, makecol(255, 255, 255), -1);
       --i;
       if (i < -1)
 	i = -1;
@@ -91,7 +91,7 @@ void getstring(char *dateiname)
 
     dateiname[i] = c;
     dateiname[i+1] = '\0';
-    textout(screen, font, dateiname, 50, 1, 255);
+    textout_ex(screen, font, dateiname, 50, 1, makecol(255, 255, 255), -1);
   }
   dateiname[i] = '\0';
   KILL_STATUS_LINE;

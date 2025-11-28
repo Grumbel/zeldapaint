@@ -24,7 +24,7 @@
 #define fit16(a) ((a/16)*16)
 #define KILL_STATUS_LINE rectfill(screen, 17, 0, 319, 20,0);
 #define exist(a) !access(a,00)
-#define status_line(buf) textout(screen, font, buf, 50, 1, 255)
+#define status_line(buf) textout_ex(screen, font, buf, 50, 1, makecol(255, 255, 255), -1)
 
 // Konstanten
 #define maxSprite 60
