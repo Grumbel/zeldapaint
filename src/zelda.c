@@ -28,7 +28,7 @@
 #define fit16y(a) (((a-16)/16)*16+16)
 #define fit16(a) ((a/16)*16)
 #define KILL_STATUS_LINE rectfill(screen, 17, 0, 319, 20,0);
-#define exist(a) !access(a,00)
+#define exist(a) (access(a, R_OK) == 0)
 
 // Konstanten
 #define maxSprite 60

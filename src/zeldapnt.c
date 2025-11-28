@@ -60,6 +60,10 @@ int main(int argc, char *argv[1])
 
   // liest Sprite Namen aus Datei ein
   in = fopen("sprite.ini", "r");
+  if (!in) {
+    perror("failed to load 'sprite.ini'");
+  }
+
   strcpy(Pfad, "sprite/");
   for (index=0; index <= maxSprite; ++index) {
     fscanf(in, "%s", Datei);
@@ -79,7 +83,7 @@ int main(int argc, char *argv[1])
   if (argc == 2) {
     strcat(argv[1], ".map");
     if (!exist(argv[1])) {
-      printf("Datei \"%s\" konnte nicht gefunden werden.", argv[1]);
+      printf("Datei \"%s\" konnte nicht gefunden werden.\n", argv[1]);
       allegro_exit();
       return 1;
     }
